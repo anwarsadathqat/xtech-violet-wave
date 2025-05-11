@@ -17,7 +17,7 @@ const FeatureCard = ({
   className = "",
 }: FeatureCardProps) => {
   return (
-    <div className={`bg-xtech-dark-purple p-6 rounded-lg hover-scale ${className}`}>
+    <div className={`bg-xtech-dark-purple p-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-xtech-purple/20 ${className}`}>
       {imageUrl && (
         <div className="mb-6">
           <img
@@ -28,10 +28,10 @@ const FeatureCard = ({
         </div>
       )}
       
-      {icon && <div className="mb-6 icon-glow">{icon}</div>}
+      {icon && <div className="mb-6 animate-glow">{icon}</div>}
       
       <h3 className="text-xl font-bold mb-3 text-xtech-blue">{title}</h3>
-      <p className="text-xtech-light-gray">{description}</p>
+      <p className="text-xtech-light">{description}</p>
     </div>
   );
 };

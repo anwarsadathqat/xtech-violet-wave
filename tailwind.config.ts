@@ -58,8 +58,8 @@ export default {
 					'dark-purple': '#1A1F2C',
 					purple: '#6F56E8',
 					blue: '#00CFFF',
-					light: '#ECECEC',
-					'light-gray': '#AAAAAA'
+					light: '#B3B3B3', // Improved from #AAAAAA for better contrast
+					'light-gray': '#CCCCCC' // Improved from #AAAAAA for better contrast
 				}
 			},
 			borderRadius: {
@@ -91,6 +91,14 @@ export default {
 					'0%': { filter: 'drop-shadow(0 0 5px rgba(111,86,232,0.6))' },
 					'50%': { filter: 'drop-shadow(0 0 15px rgba(111,86,232,0.8))' },
 					'100%': { filter: 'drop-shadow(0 0 5px rgba(111,86,232,0.6))' }
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
@@ -98,7 +106,9 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'scale-in': 'scale-in 0.3s ease-out forwards',
-				'glow': 'glow 3s ease-in-out infinite'
+				'glow': 'glow 3s ease-in-out infinite',
+				'pulse': 'pulse 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'linear-gradient(45deg, #6F56E8, #00CFFF)'

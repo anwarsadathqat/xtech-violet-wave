@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -11,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-xtech-dark/90 border-b border-white/10">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-xtech-dark/90 border-b border-white/10 shadow-md shadow-black/20">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center">

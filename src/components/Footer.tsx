@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -27,9 +28,6 @@ const Footer = () => {
                   Services
                 </Link>
               </li>
-
-
-              
               <li>
                 <Link 
                   to="/pricing" 
@@ -38,9 +36,6 @@ const Footer = () => {
                   Pricing
                 </Link>
               </li>
-
-
-              
               <li>
                 <Link 
                   to="/contact" 
@@ -123,15 +118,24 @@ const Footer = () => {
             <div className="inline-block bg-xtech-purple text-white text-xs py-1 px-3 rounded-full">
               New
             </div>
-            <p className="mt-4 text-xtech-light-gray mb-6">
+            <p className="mt-4 text-xtech-light text-base mb-6">
               Join our newsletter to stay up to date with features and releases.
             </p>
-            <p className="text-sm text-xtech-light-gray">
+            <p className="text-sm text-xtech-light">
               &copy; 2025 All rights reserved
             </p>
           </div>
         </div>
       </div>
+      
+      {/* Sticky Book a Call button */}
+      <Link 
+        to="/contact" 
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-xtech-purple to-xtech-blue rounded-full p-4 shadow-lg shadow-xtech-purple/30 hover:scale-110 transition-transform z-50 animate-pulse"
+        aria-label="Book a Call"
+      >
+        <MessageCircle className="text-white" size={24} />
+      </Link>
     </footer>
   );
 };
