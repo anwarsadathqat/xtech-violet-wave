@@ -42,7 +42,12 @@ const Navbar = () => {
 
 
             
-       
+            <Link
+              to="/pricing"
+              className="text-xtech-light hover:text-xtech-blue transition-colors"
+            >
+              Pricing
+            </Link>
 
 
             
