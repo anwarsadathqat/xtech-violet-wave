@@ -72,7 +72,7 @@ const Pricing = () => {
           </div>
           
           <div className="text-center mt-8 text-xtech-light-gray">
-            <p>*Not sure which plan? <a href="/contact" className="text-xtech-blue hover:underline">Contact us</a> for a custom quote.</p>
+            <p><a href="/contact" className="text-xtech-blue hover:underline">Contact us</a> for a custom quote.</p>
           </div>
         </div>
       </section>
