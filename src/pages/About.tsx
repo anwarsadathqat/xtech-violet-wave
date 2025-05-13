@@ -79,7 +79,7 @@ const About = () => {
           <SectionTitle title="Our Leadership Team" subtitle="Meet the experts behind XTech's innovative solutions" align="center" />
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map(i => <div key={i} className="text-center">
+            {[1, 2, 3].map(i => <div key={i} className="text-center">
                 <div className="w-32 h-32 bg-gray-800 rounded-full mx-auto mb-4"></div>
                 <h3 className="font-medium">Team Member {i}</h3>
                 <p className="text-sm text-xtech-light-gray">Position</p>
