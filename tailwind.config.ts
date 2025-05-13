@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -107,7 +106,8 @@ export default {
 				},
 				grid: {
 					'0%': { transform: 'translateZ(0)' },
-					'100%': { transform: 'translateZ(50px)' }
+					'50%': { transform: 'translateZ(40px)', opacity: '0.8' },
+					'100%': { transform: 'translateZ(0)' }
 				}
 			},
 			animation: {
@@ -119,7 +119,7 @@ export default {
 				'pulse': 'pulse 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'marquee': 'marquee 25s linear infinite',
-				'grid': 'grid 15s linear infinite'
+				'grid': 'grid 12s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'linear-gradient(45deg, #6F56E8, #00CFFF)'

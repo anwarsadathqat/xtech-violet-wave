@@ -10,18 +10,18 @@ function HeroSectionDemo() {
         gradient: "powerful technology solutions",
       }}
       description="Accelerate your digital transformation journey with our comprehensive suite of innovative technology services tailored to your unique business needs."
-      ctaText="Get Started"
-      ctaHref="/contact"
+      ctaText="Explore Our Services"
+      ctaHref="/services"
       bottomImage={{
-        light: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-        dark: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+        light: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+        dark: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
       }}
       gridOptions={{
-        angle: 65,
+        angle: 60,
         opacity: 0.4,
-        cellSize: 50,
-        lightLineColor: "#4a4a4a",
-        darkLineColor: "#2a2a2a",
+        cellSize: 40,
+        lightLineColor: "rgba(111,86,232,0.3)",
+        darkLineColor: "rgba(0,207,255,0.2)",
       }}
     />
   )
