@@ -99,6 +99,10 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				marquee: {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(calc(-100% + 100vw))' }
 				}
 			},
 			animation: {
@@ -108,7 +112,8 @@ export default {
 				'scale-in': 'scale-in 0.3s ease-out forwards',
 				'glow': 'glow 3s ease-in-out infinite',
 				'pulse': 'pulse 3s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'marquee': 'marquee 25s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'linear-gradient(45deg, #6F56E8, #00CFFF)'

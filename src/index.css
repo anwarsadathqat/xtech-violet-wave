@@ -98,6 +98,30 @@
     animation: gradientShift 15s ease infinite;
     @apply bg-gradient-to-br from-xtech-purple/30 via-xtech-blue/20 to-xtech-purple/10;
   }
+  
+  .animated-button {
+    @apply relative overflow-hidden;
+  }
+  
+  .animated-button::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white/10 transform scale-x-0 origin-right transition-transform duration-500;
+  }
+  
+  .animated-button:hover::after {
+    @apply transform scale-x-100 origin-left;
+  }
+  
+  .fade-in-section {
+    @apply transition-opacity duration-1000 ease-out;
+  }
+  
+  .fade-in-section.animate-fade-in {
+    @apply opacity-100;
+  }
+  
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
 }
 
 /* Improved animations */
@@ -148,6 +172,15 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% + 100vw));
   }
 }
 

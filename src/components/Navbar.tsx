@@ -17,6 +17,11 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Close mobile menu when route changes
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -27,8 +32,12 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold gradient-text">XTech</span>
+          <Link 
+            to="/" 
+            className="flex items-center transition-transform hover:scale-105 duration-300 group"
+            aria-label="Home"
+          >
+            <span className="text-2xl font-bold gradient-text group-hover:animate-glow">XTech</span>
             <sup className="text-xs ml-1 opacity-70">®</sup>
           </Link>
 
@@ -44,23 +53,24 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-xtech-light hover:text-xtech-blue transition-colors relative ${
+                className={`text-xtech-light hover:text-xtech-blue transition-colors relative overflow-hidden group ${
                   location.pathname === item.path ? "text-xtech-blue" : ""
                 }`}
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-xtech-purple to-xtech-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 {location.pathname === item.path && (
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-xtech-purple to-xtech-blue"></span>
                 )}
               </Link>
             ))}
             
-            <a 
-              href="/contact" 
-              className="px-4 py-2 bg-gradient-to-r from-xtech-purple to-xtech-blue text-white rounded-md hover:shadow-lg hover:shadow-xtech-purple/30 transition-all"
+            <Link 
+              to="/contact" 
+              className="px-4 py-2 bg-gradient-to-r from-xtech-purple to-xtech-blue text-white rounded-md hover:shadow-lg hover:shadow-xtech-purple/30 transition-all transform hover:-translate-y-1 duration-300"
             >
               Book a Call
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,13 +106,13 @@ const Navbar = () => {
                 </Link>
               ))}
               
-              <a 
-                href="/contact" 
+              <Link
+                to="/contact" 
                 className="px-4 py-2 bg-gradient-to-r from-xtech-purple to-xtech-blue text-white rounded-md text-center"
                 onClick={toggleMenu}
               >
                 Book a Call
-              </a>
+              </Link>
             </div>
           </div>
         )}

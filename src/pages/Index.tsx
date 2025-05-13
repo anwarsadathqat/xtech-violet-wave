@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTAButton from "@/components/CTAButton";
@@ -7,11 +7,31 @@ import FeatureCard from "@/components/FeatureCard";
 import SectionTitle from "@/components/SectionTitle";
 import StatCard from "@/components/StatCard";
 import TestimonialCard from "@/components/TestimonialCard";
+import ClientLogos from "@/components/ClientLogos";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Star, Triangle, ArrowRight, ExternalLink } from "lucide-react";
 
 const Index = () => {
+  useEffect(() => {
+    // Add intersection observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all sections with fade-in-section class
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -27,7 +47,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-xtech-light mb-10 max-w-xl mx-auto tracking-wide">
               Transforming Businesses with Cutting-Edge Solutions
             </p>
-            <CTAButton to="/services" variant="primary" className="text-lg py-4 px-8">Explore Our Services</CTAButton>
+            <CTAButton to="/services" variant="primary" className="text-lg py-4 px-8 animated-button">Explore Our Services</CTAButton>
           </div>
         </div>
         
@@ -36,21 +56,11 @@ const Index = () => {
         <div className="absolute -z-10 bottom-0 left-0 w-full h-32 bg-gradient-to-t from-xtech-dark to-transparent"></div>
       </section>
       
-      {/* Client Logos */}
-      <section className="py-12 border-y border-white/10 bg-xtech-dark-purple/50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8">
-            <div className="h-12 w-40 bg-gradient-to-r from-white/10 to-white/5 rounded-md flex items-center justify-center text-sm text-white/70 hover:text-white/90 transition-all duration-300 hover:bg-white/10">TechCorp</div>
-            <div className="h-12 w-40 bg-gradient-to-r from-white/10 to-white/5 rounded-md flex items-center justify-center text-sm text-white/70 hover:text-white/90 transition-all duration-300 hover:bg-white/10">InnoSys</div>
-            <div className="h-12 w-40 bg-gradient-to-r from-white/10 to-white/5 rounded-md flex items-center justify-center text-sm text-white/70 hover:text-white/90 transition-all duration-300 hover:bg-white/10">QatarTech</div>
-            <div className="h-12 w-40 bg-gradient-to-r from-white/10 to-white/5 rounded-md flex items-center justify-center text-sm text-white/70 hover:text-white/90 transition-all duration-300 hover:bg-white/10">GulfDigital</div>
-            <div className="h-12 w-40 bg-gradient-to-r from-white/10 to-white/5 rounded-md flex items-center justify-center text-sm text-white/70 hover:text-white/90 transition-all duration-300 hover:bg-white/10">FutureNet</div>
-          </div>
-        </div>
-      </section>
+      {/* Client Logos - Now using the new component */}
+      <ClientLogos />
       
       {/* Transforming Businesses Section */}
-      <section className="py-24 relative">
+      <section className="py-24 relative fade-in-section opacity-0">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1">
@@ -73,12 +83,12 @@ const Index = () => {
                 IT services and software solutions tailored to your business needs.
               </p>
               <div className="flex flex-wrap gap-4">
-                <CTAButton to="/services">Explore Our Solutions</CTAButton>
+                <CTAButton to="/services" className="animated-button">Explore Our Solutions</CTAButton>
                 <CTAButton to="/about" variant="secondary">Learn More <ArrowRight size={16} /></CTAButton>
               </div>
             </div>
             
-            <div className="order-1 md:order-2 relative">
+            <div className="order-1 md:order-2 relative transform transition-all duration-700 hover:scale-105">
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-xtech-purple/20 blur-[100px] opacity-60"></div>
               <div className="relative bg-gradient-to-bl from-xtech-purple/20 to-xtech-blue/20 rounded-2xl p-1 hover:from-xtech-purple/30 hover:to-xtech-blue/30 transition-all duration-500 shadow-lg shadow-xtech-purple/10">
                 <div className="bg-xtech-dark-purple rounded-xl overflow-hidden">
@@ -99,7 +109,7 @@ const Index = () => {
       </section>
       
       {/* Stats Section */}
-      <section className="py-24 bg-xtech-dark-purple relative">
+      <section className="py-24 bg-xtech-dark-purple relative fade-in-section opacity-0">
         <div className="absolute -z-10 top-0 left-0 w-full h-32 bg-gradient-to-b from-xtech-dark to-transparent"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -121,7 +131,7 @@ const Index = () => {
       </section>
       
       {/* Why Choose Us */}
-      <section className="py-24">
+      <section className="py-24 fade-in-section opacity-0">
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Why Choose Us" 
@@ -130,7 +140,7 @@ const Index = () => {
           />
           
           <div className="grid md:grid-cols-2 gap-10">
-            <Card className="bg-gradient-to-br from-xtech-dark-purple/95 to-xtech-dark-purple border-white/5 shadow-lg shadow-xtech-purple/10 hover:shadow-xl hover:shadow-xtech-purple/20 transition-all duration-500">
+            <Card className="bg-gradient-to-br from-xtech-dark-purple/95 to-xtech-dark-purple border-white/5 shadow-lg shadow-xtech-purple/10 hover:shadow-xl hover:shadow-xtech-purple/20 transition-all duration-500 transform hover:-translate-y-2">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 gradient-text">
                   Transforming with Cutting-Edge Solutions
@@ -167,7 +177,7 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-xtech-dark-purple/95 to-xtech-dark-purple border-white/5 shadow-lg shadow-blue-900/10 hover:shadow-xl hover:shadow-blue-900/20 transition-all duration-500">
+            <Card className="bg-gradient-to-br from-xtech-dark-purple/95 to-xtech-dark-purple border-white/5 shadow-lg shadow-blue-900/10 hover:shadow-xl hover:shadow-blue-900/20 transition-all duration-500 transform hover:-translate-y-2">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-xtech-blue">
                   Trusted By Industry Leaders Across Sectors
@@ -208,7 +218,7 @@ const Index = () => {
       </section>
       
       {/* Our Services - Redesigned with featured service */}
-      <section className="py-24 relative">
+      <section className="py-24 relative fade-in-section opacity-0">
         <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-xtech-blue/10 blur-[150px] opacity-30"></div>
         
         <div className="container mx-auto px-4">
@@ -219,12 +229,12 @@ const Index = () => {
           />
           
           <div className="flex flex-col items-center mb-16">
-            <div className="bg-gradient-to-br from-blue-600/20 to-indigo-800/20 p-8 rounded-xl w-full max-w-2xl border border-blue-500/20 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 transform-gpu hover:-translate-y-1">
+            <div className="bg-gradient-to-br from-blue-600/20 to-indigo-800/20 p-8 rounded-xl w-full max-w-2xl border border-blue-500/20 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 transform-gpu hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-4 text-white">Software Solutions</h3>
               <p className="text-blue-100 mb-6">
                 We develop custom software solutions tailored to your specific business needs, leveraging cutting-edge technologies to deliver exceptional results.
               </p>
-              <CTAButton to="/services" variant="secondary" className="inline-flex">
+              <CTAButton to="/services" variant="secondary" className="inline-flex animated-button">
                 Learn More <ArrowRight className="ml-2" size={16} />
               </CTAButton>
             </div>
@@ -235,23 +245,26 @@ const Index = () => {
               title="Digital Transformation"
               description="Comprehensive digital transformation services to revolutionize your business operations."
               icon={<Code size={48} className="text-xtech-purple" />}
+              className="transform hover:-translate-y-2 hover:shadow-lg hover:shadow-xtech-purple/30 transition-all duration-500"
             />
             
             <FeatureCard 
               title="Cloud Solutions"
               description="Secure and scalable cloud infrastructure tailored to your business requirements."
               icon={<Star size={48} className="text-xtech-blue" />}
+              className="transform hover:-translate-y-2 hover:shadow-lg hover:shadow-xtech-blue/30 transition-all duration-500"
             />
             
             <FeatureCard 
               title="AI Implementation"
               description="Cutting-edge artificial intelligence solutions to drive business innovation."
               icon={<Triangle size={48} className="text-xtech-purple" />}
+              className="transform hover:-translate-y-2 hover:shadow-lg hover:shadow-xtech-purple/30 transition-all duration-500"
             />
           </div>
           
           <div className="text-center mt-12">
-            <CTAButton to="/services" variant="secondary">
+            <CTAButton to="/services" variant="secondary" className="animated-button">
               View All Services <ArrowRight size={16} />
             </CTAButton>
           </div>
@@ -259,7 +272,7 @@ const Index = () => {
       </section>
       
       {/* Solutions Section */}
-      <section className="py-24 bg-xtech-dark-purple/50 relative">
+      <section className="py-24 bg-xtech-dark-purple/50 relative fade-in-section opacity-0">
         <div className="absolute -z-10 top-0 left-0 w-full h-32 bg-gradient-to-b from-xtech-dark to-transparent"></div>
         <div className="container mx-auto px-4">
           <SectionTitle 
@@ -273,21 +286,21 @@ const Index = () => {
               title="Focusing on Your Business"
               description="We start by gaining a deep understanding of your business goals and challenges."
               icon={<Code size={48} className="text-xtech-purple" />}
-              className="hover:-translate-y-3"
+              className="transform hover:-translate-y-3 transition-all duration-500"
             />
             
             <FeatureCard 
               title="Developing Tailored Solutions"
               description="Our team of experts develops customized solutions that address your specific needs."
               icon={<Star size={48} className="text-xtech-blue" />}
-              className="hover:-translate-y-3"
+              className="transform hover:-translate-y-3 transition-all duration-500"
             />
             
             <FeatureCard 
               title="Scalability and Innovation"
               description="We leverage cutting-edge technology to implement solutions that grow with your business."
               icon={<Triangle size={48} className="text-xtech-purple" />}
-              className="hover:-translate-y-3"
+              className="transform hover:-translate-y-3 transition-all duration-500"
             />
           </div>
           
@@ -307,7 +320,7 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="relative">
+            <div className="relative transform transition-all duration-700 hover:scale-105">
               <div className="absolute -inset-1 bg-gradient-to-r from-xtech-purple/50 to-xtech-blue/50 rounded-lg blur-md opacity-30"></div>
               <div className="relative bg-xtech-dark-purple rounded-lg overflow-hidden shadow-xl">
                 <img 
@@ -323,7 +336,7 @@ const Index = () => {
       </section>
       
       {/* Testimonials */}
-      <section className="py-24 relative">
+      <section className="py-24 relative fade-in-section opacity-0">
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Our Customers Reviews" 
@@ -357,7 +370,7 @@ const Index = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-xtech-dark-purple/50 to-xtech-dark relative">
+      <section className="py-24 bg-gradient-to-b from-xtech-dark-purple/50 to-xtech-dark relative fade-in-section opacity-0">
         <div className="absolute -z-10 top-0 left-0 w-full h-32 bg-gradient-to-b from-xtech-dark to-transparent"></div>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text animate-glow">
@@ -366,7 +379,7 @@ const Index = () => {
           <p className="text-xtech-light text-xl max-w-2xl mx-auto mb-10">
             Contact us today to learn how XTech can help your business achieve its goals with our cutting-edge technology solutions.
           </p>
-          <CTAButton to="/contact" className="mx-auto text-lg py-4 px-8">Schedule a Consultation</CTAButton>
+          <CTAButton to="/contact" className="mx-auto text-lg py-4 px-8 animated-button">Schedule a Consultation</CTAButton>
         </div>
       </section>
       
