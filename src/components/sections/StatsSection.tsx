@@ -18,7 +18,7 @@ const StatsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <StatCard value="10" label="Years of Experience" />
-          <StatCard value="50+" label="Countries in Services" />
+          <StatCard value="3+" label="Countries in Services" />
           <StatCard value="30%" label="Increase in Productivity" />
         </div>
       </div>
