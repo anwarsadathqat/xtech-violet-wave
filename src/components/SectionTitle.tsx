@@ -22,16 +22,16 @@ const SectionTitle = ({
       : "text-center";
 
   return (
-    <div className={`mb-10 ${alignClass}`}>
+    <div className={`mb-12 ${alignClass}`}>
       {tag && (
-        <span className="text-xs text-xtech-blue uppercase tracking-wider mb-2 block">
+        <span className="text-xs md:text-sm text-xtech-blue uppercase tracking-widest mb-3 block font-medium">
           {tag}
         </span>
       )}
       <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-xtech-purple to-xtech-blue bg-clip-text text-transparent">
         {title}
       </h2>
-      {subtitle && <p className="text-xtech-light-gray text-lg">{subtitle}</p>}
+      {subtitle && <p className="text-xtech-light text-lg mt-4">{subtitle}</p>}
     </div>
   );
 };

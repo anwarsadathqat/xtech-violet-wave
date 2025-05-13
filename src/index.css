@@ -84,6 +84,20 @@
   .shadow-top {
     box-shadow: 0 -5px 20px -5px rgba(0, 0, 0, 0.3);
   }
+  
+  .blur-backdrop {
+    @apply backdrop-blur-md bg-xtech-dark/80 border-b border-white/5;
+  }
+  
+  .gradient-hover {
+    @apply transition-all duration-500 hover:bg-gradient-to-r from-xtech-purple/20 to-xtech-blue/20;
+  }
+  
+  .animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    @apply bg-gradient-to-br from-xtech-purple/30 via-xtech-blue/20 to-xtech-purple/10;
+  }
 }
 
 /* Improved animations */
@@ -122,6 +136,18 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
