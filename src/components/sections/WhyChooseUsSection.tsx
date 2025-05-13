@@ -66,14 +66,16 @@ const DataFlowAnimation = ({ color = "purple" }) => {
         <div className={`absolute h-2 w-2 rounded-full bg-${baseColor}/70 top-2/3 left-2/3`}></div>
         <div className={`absolute h-2 w-2 rounded-full bg-${baseColor}/70 top-3/4 left-1/3`}></div>
         
-        <style jsx>{`
+        <style>
+          {`
           @keyframes dataFlow {
             0% { transform: translateX(0); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
             100% { transform: translateX(calc(300px)); opacity: 0; }
           }
-        `}</style>
+          `}
+        </style>
       </div>
     </div>
   );
