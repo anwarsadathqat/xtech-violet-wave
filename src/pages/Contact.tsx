@@ -38,7 +38,7 @@ const Contact = () => {
               <Mail size={32} className="text-xtech-blue mb-4" />
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <a href="mailto:info@xtech.qa" className="text-xtech-light-gray hover:text-xtech-blue">
-                info@xtech.qa
+                info@xtech.qa | XtechInfoQat@gmail.com
               </a>
             </div>
             
@@ -83,7 +83,7 @@ const Contact = () => {
       <section className="py-8 bg-xtech-dark-purple">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Office Hours</h2>
-          <p className="text-xtech-light-gray mb-2">Monday - Friday: 9:00 AM - 6:00 PM</p>
+          <p className="text-xtech-light-gray mb-2">Sunday - Thursday: 9:00 AM - 6:00 PM</p>
           <p className="text-xtech-light-gray">Saturday: 10:00 AM - 2:00 PM</p>
         </div>
       </section>
