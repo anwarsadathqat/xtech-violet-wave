@@ -1,24 +1,17 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
 import CTAButton from "@/components/CTAButton";
-
 const About = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       
       {/* Hero Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <SectionTitle 
-              title="About XTech" 
-              subtitle="Empowering Qatari businesses with innovative, scalable technology solutions to drive digital transformation."
-              align="center"
-            />
+            <SectionTitle title="About XTech" subtitle="Empowering Qatari businesses with innovative, scalable technology solutions to drive digital transformation." align="center" />
           </div>
         </div>
       </section>
@@ -31,9 +24,7 @@ const About = () => {
               <p className="text-lg mb-6">
                 XTech is your technology-oriented partner in digital transformation, providing end-to-end IT solutions that align with Qatar's National Vision and business goals. Our team combines deep industry experience with a passion for innovation.
               </p>
-              <p className="text-xtech-light-gray mb-6">
-                We understand the unique challenges faced by businesses in Qatar and the wider region. Our solutions are designed to address these specific challenges while leveraging global best practices and cutting-edge technologies.
-              </p>
+              <p className="text-xtech-light-gray mb-6">We understand the unique challenges faced by businesses in Qatar and the wider region. Our solutions are designed to address these specific challenges while leveraging global best practices and cutting-edge technologies.</p>
               <p className="text-xtech-light-gray">
                 With a focus on quality, security, and performance, we deliver solutions that not only meet but exceed our clients' expectations, helping them achieve their business objectives efficiently and effectively.
               </p>
@@ -41,11 +32,7 @@ const About = () => {
             
             <div className="bg-xtech-dark-purple p-8 rounded-lg">
               <div className="aspect-w-16 aspect-h-9 mb-8">
-                <img
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
-                  alt="Technology"
-                  className="rounded-lg object-cover w-full h-64"
-                />
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" alt="Technology" className="rounded-lg object-cover w-full h-64" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-xtech-light-gray">
@@ -59,10 +46,7 @@ const About = () => {
       {/* Core Values */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionTitle 
-            title="Our Core Values" 
-            align="center"
-          />
+          <SectionTitle title="Our Core Values" align="center" />
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-xtech-dark-purple p-8 rounded-lg">
@@ -92,20 +76,14 @@ const About = () => {
       {/* Team Section */}
       <section className="py-16 bg-xtech-dark-purple">
         <div className="container mx-auto px-4">
-          <SectionTitle 
-            title="Our Leadership Team" 
-            subtitle="Meet the experts behind XTech's innovative solutions"
-            align="center"
-          />
+          <SectionTitle title="Our Leadership Team" subtitle="Meet the experts behind XTech's innovative solutions" align="center" />
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="text-center">
+            {[1, 2, 3, 4].map(i => <div key={i} className="text-center">
                 <div className="w-32 h-32 bg-gray-800 rounded-full mx-auto mb-4"></div>
                 <h3 className="font-medium">Team Member {i}</h3>
                 <p className="text-sm text-xtech-light-gray">Position</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -122,8 +100,6 @@ const About = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
