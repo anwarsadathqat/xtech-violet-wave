@@ -1,16 +1,30 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-xtech-dark/90 border-b border-white/10 shadow-md shadow-black/20">
+    <header className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
+      isScrolled ? "bg-xtech-dark/95 shadow-lg shadow-black/30" : "bg-xtech-dark/80"
+    }`}>
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
@@ -20,48 +34,40 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/"
-              className="text-xtech-light hover:text-xtech-blue transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              to="/about"
-              className="text-xtech-light hover:text-xtech-blue transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="/services"
-              className="text-xtech-light hover:text-xtech-blue transition-colors"
-            >
-              Services
-            </Link>
-
-
+            {[
+              { path: "/", label: "Home" },
+              { path: "/about", label: "About" },
+              { path: "/services", label: "Services" },
+              { path: "/pricing", label: "Pricing" },
+              { path: "/contact", label: "Contact" }
+            ].map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-xtech-light hover:text-xtech-blue transition-colors relative ${
+                  location.pathname === item.path ? "text-xtech-blue" : ""
+                }`}
+              >
+                {item.label}
+                {location.pathname === item.path && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-xtech-purple to-xtech-blue"></span>
+                )}
+              </Link>
+            ))}
             
-            <Link
-              to="/pricing"
-              className="text-xtech-light hover:text-xtech-blue transition-colors"
+            <a 
+              href="/contact" 
+              className="px-4 py-2 bg-gradient-to-r from-xtech-purple to-xtech-blue text-white rounded-md hover:shadow-lg hover:shadow-xtech-purple/30 transition-all"
             >
-              Pricing
-            </Link>
-
-
-            
-            <Link
-              to="/contact"
-              className="text-xtech-light hover:text-xtech-blue transition-colors"
-            >
-              Contact
-            </Link>
+              Book a Call
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-xtech-light focus:outline-none"
             onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -69,43 +75,34 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-xtech-dark border-b border-white/10 py-4 animate-fade-in">
+          <div className="md:hidden absolute top-full left-0 w-full bg-xtech-dark-purple border-b border-white/10 py-4 animate-fade-in shadow-lg">
             <div className="container mx-auto px-4 flex flex-col space-y-4">
-              <Link
-                to="/"
-                className="text-xtech-light hover:text-xtech-blue transition-colors"
+              {[
+                { path: "/", label: "Home" },
+                { path: "/about", label: "About" },
+                { path: "/services", label: "Services" },
+                { path: "/pricing", label: "Pricing" },
+                { path: "/contact", label: "Contact" }
+              ].map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-xtech-light hover:text-xtech-blue transition-colors ${
+                    location.pathname === item.path ? "text-xtech-blue" : ""
+                  }`}
+                  onClick={toggleMenu}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              <a 
+                href="/contact" 
+                className="px-4 py-2 bg-gradient-to-r from-xtech-purple to-xtech-blue text-white rounded-md text-center"
                 onClick={toggleMenu}
               >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className="text-xtech-light hover:text-xtech-blue transition-colors"
-                onClick={toggleMenu}
-              >
-                About
-              </Link>
-              <Link
-                to="/services"
-                className="text-xtech-light hover:text-xtech-blue transition-colors"
-                onClick={toggleMenu}
-              >
-                Services
-              </Link>
-              <Link
-                to="/pricing"
-                className="text-xtech-light hover:text-xtech-blue transition-colors"
-                onClick={toggleMenu}
-              >
-                Pricing
-              </Link>
-              <Link
-                to="/contact"
-                className="text-xtech-light hover:text-xtech-blue transition-colors"
-                onClick={toggleMenu}
-              >
-                Contact
-              </Link>
+                Book a Call
+              </a>
             </div>
           </div>
         )}

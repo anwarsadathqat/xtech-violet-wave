@@ -46,7 +46,7 @@
 
 @layer utilities {
   .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg;
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg hover:shadow-xl hover:shadow-xtech-purple/20 transition-all duration-300;
   }
   
   .gradient-text {
@@ -64,4 +64,81 @@
   .icon-glow {
     @apply filter drop-shadow-lg transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(111,86,232,0.8)];
   }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  .card-hover-effect {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-xtech-purple/20;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 0 10px rgba(111, 86, 232, 0.5);
+  }
+  
+  .shadow-top {
+    box-shadow: 0 -5px 20px -5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Improved animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(111,86,232,0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(111,86,232,0.9));
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1F2C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6F56E8;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00CFFF;
 }
