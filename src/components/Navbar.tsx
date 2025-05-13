@@ -47,7 +47,6 @@ const Navbar = () => {
               { path: "/", label: "Home" },
               { path: "/about", label: "About" },
               { path: "/services", label: "Services" },
-              { path: "/pricing", label: "Pricing" },
               { path: "/contact", label: "Contact" }
             ].map((item) => (
               <Link
@@ -91,7 +90,6 @@ const Navbar = () => {
                 { path: "/", label: "Home" },
                 { path: "/about", label: "About" },
                 { path: "/services", label: "Services" },
-                { path: "/pricing", label: "Pricing" },
                 { path: "/contact", label: "Contact" }
               ].map((item) => (
                 <Link

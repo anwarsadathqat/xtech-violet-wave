@@ -1,8 +1,12 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
 import CTAButton from "@/components/CTAButton";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+
 const About = () => {
   return <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -78,12 +82,45 @@ const About = () => {
         <div className="container mx-auto px-4">
           <SectionTitle title="Our Leadership Team" subtitle="Meet the experts behind XTech's innovative solutions" align="center" />
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3].map(i => <div key={i} className="text-center">
-                <div className="w-32 h-32 bg-gray-800 rounded-full mx-auto mb-4"></div>
-                <h3 className="font-medium">Team Member {i}</h3>
-                <p className="text-sm text-xtech-light-gray">Position</p>
-              </div>)}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto mt-12">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-40 h-40 relative mb-6 overflow-hidden rounded-full border-4 border-xtech-purple/20 hover:border-xtech-purple/50 transition-colors duration-300">
+                <AspectRatio ratio={1/1}>
+                  <Avatar className="w-full h-full">
+                    <AvatarImage src="/lovable-uploads/4dc12dee-586f-4555-81c2-13582b109823.png" alt="Ashik Hashim" />
+                    <AvatarFallback className="bg-xtech-dark text-xtech-light text-xl">AH</AvatarFallback>
+                  </Avatar>
+                </AspectRatio>
+              </div>
+              <h3 className="text-xl font-bold text-xtech-light bg-gradient-to-r from-xtech-purple to-xtech-blue bg-clip-text text-transparent">Ashik Hashim</h3>
+              <p className="text-sm text-xtech-light-gray mt-2">Chairman</p>
+            </div>
+            
+            <div className="flex flex-col items-center text-center">
+              <div className="w-40 h-40 relative mb-6 overflow-hidden rounded-full border-4 border-xtech-blue/20 hover:border-xtech-blue/50 transition-colors duration-300">
+                <AspectRatio ratio={1/1}>
+                  <Avatar className="w-full h-full">
+                    <AvatarImage src="/lovable-uploads/80deaaf8-e6c6-49c8-b7b7-0722ca82009a.png" alt="Nishad K.P" />
+                    <AvatarFallback className="bg-xtech-dark text-xtech-light text-xl">NKP</AvatarFallback>
+                  </Avatar>
+                </AspectRatio>
+              </div>
+              <h3 className="text-xl font-bold text-xtech-light bg-gradient-to-r from-xtech-blue to-xtech-purple bg-clip-text text-transparent">Nishad K.P</h3>
+              <p className="text-sm text-xtech-light-gray mt-2">CEO</p>
+            </div>
+            
+            <div className="flex flex-col items-center text-center">
+              <div className="w-40 h-40 relative mb-6 overflow-hidden rounded-full border-4 border-xtech-purple/20 hover:border-xtech-purple/50 transition-colors duration-300">
+                <AspectRatio ratio={1/1}>
+                  <Avatar className="w-full h-full">
+                    <AvatarImage src="/lovable-uploads/7418edda-aaba-4c6d-875d-2e7e3cfb49ff.png" alt="Anwar Sadath" />
+                    <AvatarFallback className="bg-xtech-dark text-xtech-light text-xl">AS</AvatarFallback>
+                  </Avatar>
+                </AspectRatio>
+              </div>
+              <h3 className="text-xl font-bold text-xtech-light bg-gradient-to-r from-xtech-purple to-xtech-blue bg-clip-text text-transparent">Anwar Sadath</h3>
+              <p className="text-sm text-xtech-light-gray mt-2">CTO</p>
+            </div>
           </div>
         </div>
       </section>
