@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ClientLogos from "@/components/ClientLogos";
-import HeroSection from "@/components/sections/HeroSection";
 import TransformBusinessSection from "@/components/sections/TransformBusinessSection";
 import StatsSection from "@/components/sections/StatsSection";
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
@@ -11,6 +10,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import SolutionsSection from "@/components/sections/SolutionsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
+import { HeroSectionDemo } from "@/components/ui/demo";
 
 const Index = () => {
   useEffect(() => {
@@ -36,7 +36,8 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <HeroSection />
+      {/* Modern Hero Section */}
+      <HeroSectionDemo />
       
       {/* Client Logos */}
       <ClientLogos />

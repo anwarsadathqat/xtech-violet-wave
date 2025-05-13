@@ -73,6 +73,10 @@
     animation: glow 3s ease-in-out infinite;
   }
   
+  .animate-grid {
+    animation: grid 15s linear infinite;
+  }
+  
   .card-hover-effect {
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-xtech-purple/20;
   }
@@ -181,6 +185,15 @@
   }
   100% {
     transform: translateX(calc(-100% + 100vw));
+  }
+}
+
+@keyframes grid {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translateZ(50px);
   }
 }
 

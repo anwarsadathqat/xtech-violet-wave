@@ -68,7 +68,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				inter: ['Inter', 'sans-serif']
+				inter: ['Inter', 'sans-serif'],
+				geist: ['Inter', 'sans-serif'] // Using Inter as a fallback for Geist
 			},
 			keyframes: {
 				'accordion-down': {
@@ -103,6 +104,10 @@ export default {
 				marquee: {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(calc(-100% + 100vw))' }
+				},
+				grid: {
+					'0%': { transform: 'translateZ(0)' },
+					'100%': { transform: 'translateZ(50px)' }
 				}
 			},
 			animation: {
@@ -113,7 +118,8 @@ export default {
 				'glow': 'glow 3s ease-in-out infinite',
 				'pulse': 'pulse 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
-				'marquee': 'marquee 25s linear infinite'
+				'marquee': 'marquee 25s linear infinite',
+				'grid': 'grid 15s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'linear-gradient(45deg, #6F56E8, #00CFFF)'
