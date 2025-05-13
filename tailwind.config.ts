@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -108,6 +109,12 @@ export default {
 					'0%': { transform: 'translateZ(0)' },
 					'50%': { transform: 'translateZ(40px)', opacity: '0.8' },
 					'100%': { transform: 'translateZ(0)' }
+				},
+				dataFlow: {
+					'0%': { transform: 'translateX(0)', opacity: '0' },
+					'10%': { opacity: '1' },
+					'90%': { opacity: '1' },
+					'100%': { transform: 'translateX(calc(100% + 10px))', opacity: '0' }
 				}
 			},
 			animation: {
@@ -119,7 +126,8 @@ export default {
 				'pulse': 'pulse 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'marquee': 'marquee 25s linear infinite',
-				'grid': 'grid 12s ease-in-out infinite'
+				'grid': 'grid 12s ease-in-out infinite',
+				'data-flow': 'dataFlow 4s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'linear-gradient(45deg, #6F56E8, #00CFFF)'

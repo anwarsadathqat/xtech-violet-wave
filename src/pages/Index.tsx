@@ -10,7 +10,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import SolutionsSection from "@/components/sections/SolutionsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
-import { HeroSectionDemo } from "@/components/ui/demo";
+import HeroSection from "@/components/sections/HeroSection";
 
 const Index = () => {
   useEffect(() => {
@@ -37,7 +37,7 @@ const Index = () => {
       <Navbar />
       
       {/* Modern Hero Section */}
-      <HeroSectionDemo />
+      <HeroSection />
       
       {/* Client Logos */}
       <ClientLogos />
