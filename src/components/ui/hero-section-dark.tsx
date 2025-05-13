@@ -1,7 +1,7 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { ChevronRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
@@ -12,10 +12,6 @@ interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   description?: string
   ctaText?: string
   ctaHref?: string
-  bottomImage?: {
-    light: string
-    dark: string
-  }
   gridOptions?: {
     angle?: number
     cellSize?: number
@@ -56,6 +52,56 @@ const RetroGrid = ({
   )
 }
 
+// Modern floating elements for tech theme
+const FloatingElements = () => {
+  return (
+    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+      {/* Central glowing orb */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-r from-xtech-purple to-xtech-blue rounded-full blur-md opacity-70 animate-pulse"></div>
+      
+      {/* Tech circuit lines */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        {/* Horizontal lines */}
+        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-xtech-purple/40 to-transparent animate-[pulse_4s_ease-in-out_infinite]"></div>
+        <div className="absolute top-3/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-xtech-blue/40 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]"></div>
+        
+        {/* Vertical lines */}
+        <div className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-xtech-purple/40 to-transparent animate-[pulse_4s_ease-in-out_infinite_1s]"></div>
+        <div className="absolute top-0 left-3/4 w-[1px] h-full bg-gradient-to-b from-transparent via-xtech-blue/40 to-transparent animate-[pulse_4s_ease-in-out_infinite_1.5s]"></div>
+      </div>
+      
+      {/* Floating particles/dots */}
+      {Array.from({ length: 12 }).map((_, i) => (
+        <div 
+          key={i}
+          className={`absolute w-1.5 h-1.5 rounded-full bg-xtech-${i % 2 ? 'purple' : 'blue'}/70`}
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animation: `float ${3 + Math.random() * 4}s ease-in-out ${Math.random() * 2}s infinite alternate`
+          }}
+        ></div>
+      ))}
+      
+      {/* Abstract tech shapes */}
+      <div className="absolute bottom-10 left-1/4 w-16 h-16 border border-xtech-purple/30 rounded-lg rotate-45 animate-[float_6s_ease-in-out_infinite]"></div>
+      <div className="absolute top-10 right-1/4 w-12 h-12 border border-xtech-blue/30 rounded-full animate-[float_7s_ease-in-out_infinite_0.5s]"></div>
+      <div className="absolute top-1/2 right-16 w-10 h-10 border-2 border-xtech-purple/40 rounded-md animate-[float_5s_ease-in-out_infinite_1s]"></div>
+      <div className="absolute bottom-1/3 left-16 w-8 h-8 border-2 border-xtech-blue/40 rounded-md rotate-12 animate-[float_8s_ease-in-out_infinite_1.5s]"></div>
+      
+      {/* Digital code/data visualization suggestion */}
+      <div className="absolute bottom-8 left-1/3 right-1/3 h-4 flex items-center justify-center space-x-1 animate-[float_4s_ease-in-out_infinite]">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div 
+            key={i}
+            className={`h-${1 + Math.floor(Math.random() * 3)} w-1 bg-xtech-${i % 2 ? 'purple' : 'blue'}/60 rounded-full`}
+          ></div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
   (
     {
@@ -68,10 +114,6 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       description = "Sed ut perspiciatis unde omnis iste natus voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.",
       ctaText = "Browse courses",
       ctaHref = "#",
-      bottomImage = {
-        light: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-        dark: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-      },
       gridOptions,
       ...props
     },
@@ -86,7 +128,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             <div className="space-y-5 max-w-3xl leading-0 lg:leading-5 mx-auto text-center">
               <h1 className="text-sm text-gray-400 group font-geist mx-auto px-5 py-2 bg-gradient-to-tr from-xtech-purple/20 via-gray-400/20 to-transparent border-[2px] border-xtech-purple/20 rounded-3xl w-fit">
                 {title}
-                <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
+                <ArrowRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
               </h1>
               <h2 className="text-4xl tracking-tighter font-geist bg-clip-text text-xtech-light mx-auto md:text-6xl">
                 {subtitle.regular}
@@ -106,25 +148,15 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                       className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-xtech-purple/20 via-xtech-blue/30 to-transparent text-white border-xtech-purple/30 border-[1px] hover:bg-gradient-to-tr hover:from-xtech-purple/30 hover:via-xtech-blue/40 hover:to-transparent hover:border-xtech-purple/50 transition-all sm:w-auto py-4 px-10"
                     >
                       {ctaText}
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </a>
                   </div>
                 </span>
               </div>
             </div>
-            {bottomImage && (
-              <div className="mt-32 mx-10 relative z-10">
-                <img
-                  src={bottomImage.light}
-                  className="w-full shadow-lg rounded-lg border border-xtech-purple/20 dark:hidden"
-                  alt="Dashboard preview"
-                />
-                <img
-                  src={bottomImage.dark}
-                  className="hidden w-full shadow-lg rounded-lg border border-xtech-purple/20 dark:block"
-                  alt="Dashboard preview"
-                />
-              </div>
-            )}
+            <div className="mt-24 relative z-10 mx-auto max-w-4xl">
+              <FloatingElements />
+            </div>
           </div>
         </section>
       </div>

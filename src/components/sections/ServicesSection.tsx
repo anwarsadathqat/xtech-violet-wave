@@ -25,7 +25,7 @@ const ServicesSection = () => {
               We develop custom software solutions tailored to your specific business needs, leveraging cutting-edge technologies to deliver exceptional results.
             </p>
             <CTAButton to="/services" variant="secondary" className="inline-flex animated-button">
-              Learn More <ArrowRight className="ml-2" size={16} />
+              Learn More
             </CTAButton>
           </div>
         </div>
@@ -55,7 +55,7 @@ const ServicesSection = () => {
         
         <div className="text-center mt-12">
           <CTAButton to="/services" variant="secondary" className="animated-button">
-            View All Services <ArrowRight size={16} />
+            View All Services
           </CTAButton>
         </div>
       </div>
